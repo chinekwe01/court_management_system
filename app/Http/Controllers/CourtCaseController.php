@@ -25,7 +25,7 @@ class CourtCaseController extends Controller
      */
     public function create()
     {
-        //
+        return view('cases.createCase');
     }
 
     /**
@@ -36,7 +36,15 @@ class CourtCaseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'type' => 'required',
+            'details' => 'required|max:255',
+            'begins' => 'required',
+            'ends' =>'required',
+        ]);
+        CourtCase::create($request->all());
+
+        return redirect()->route('admin.case.index')->with('success','Case created successfully.');;
     }
 
     /**

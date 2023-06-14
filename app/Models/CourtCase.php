@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class CourtCase extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'type', 'details', 'begins', 'ends'
+    ];
 }

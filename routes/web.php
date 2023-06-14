@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Models\CourtCase;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,5 +50,6 @@ All Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
     Route::get('/cases', [CourtCaseController::class, 'index'])->name('admin.case.index');
+    Route::post('/cases/store', [CourtCaseController::class,'store'])->name('admin.case.store');
 
 });
