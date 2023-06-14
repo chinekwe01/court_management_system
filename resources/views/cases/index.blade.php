@@ -48,54 +48,58 @@
  <div class="sm:ml-64">
     <div class="px-3 rounded-lg dark:border-gray-700">
        <div class="h-full mb-4 rounded relative overflow-x-auto">
+            <div class="flex justify-between">
+                <h1 class="text-bold text-2xl mt-2">All Cases</h1>
+                <span class="bg-blue-500 p-2 rounded hover:bg-blue-700"><a class="text-lg text-white" href="">Create Case</a></span>
+            </div>
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                    <tr>
-                        <th scope="col" class="px-6 py-3">
-                            S/N
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Type
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Details
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Start Date
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            End Date
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Status
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($cases as $key => $case)
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ $case->id }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $case->type }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $case->details }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $case->begins }}
-                        </td>
-                        <td class="px-6 py-4 ">
-                            {{ $case->ends }}
-                        </td>
-                        <td class="px-6 py-4">
-                            <p>Active</p>
-                        </td>
-                    </tr>
-                    @endforeach
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+            <th scope="col" class="px-6 py-3">
+            S/N
+            </th>
+            <th scope="col" class="px-6 py-3">
+            Type
+            </th>
+            <th scope="col" class="px-6 py-3">
+            Details
+            </th>
+            <th scope="col" class="px-6 py-3">
+            Start Date
+            </th>
+            <th scope="col" class="px-6 py-3">
+            End Date
+            </th>
+            <th scope="col" class="px-6 py-3">
+            Status
+            </th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach ($cases as $key => $case)
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            {{ $case->id }}
+            </td>
+            <td class="px-6 py-4">
+            {{ $case->type }}
+            </td>
+            <td class="px-6 py-4">
+            {{ $case->details }}
+            </td>
+            <td class="px-6 py-4">
+            {{ $case->begins }}
+            </td>
+            <td class="px-6 py-4 ">
+            {{ $case->ends }}
+            </td>
+            <td class="px-6 py-4">
+            <p>Active</p>
+            </td>
+            </tr>
+            @endforeach
 
-                </tbody>
+            </tbody>
             </table>
             {{ $cases->links() }}
         </div>
