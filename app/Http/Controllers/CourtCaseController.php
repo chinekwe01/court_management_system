@@ -14,7 +14,8 @@ class CourtCaseController extends Controller
      */
     public function index()
     {
-        //
+        $cases = CourtCase::paginate(10);
+        return view('cases.index', compact('cases'));
     }
 
     /**

@@ -2,7 +2,8 @@
 
    namespace App\Http\Controllers;
 
-   use Illuminate\Http\Request;
+use App\Models\CourtCase;
+use Illuminate\Http\Request;
 
    class HomeController extends Controller
    {
@@ -43,6 +44,8 @@
         */
        public function adminHome()
        {
-           return view('adminHome');
+            $cases = CourtCase::paginate(5);
+            $caseCount = CourtCase::count();
+           return view('adminHome', compact('cases', 'caseCount'));
        }
    }

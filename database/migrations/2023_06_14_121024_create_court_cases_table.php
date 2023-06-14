@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('type');
             $table->string('details');
-            $table->date('begin');
-            $table->date('end');
+            $table->date('begins');
+            $table->date('ends');
             // $table->string('court_id');
             $table->timestamps();
         });

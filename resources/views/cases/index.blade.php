@@ -13,7 +13,7 @@
     <div class="h-full mt-5 px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
        <ul class="space-y-2 font-medium">
           <li>
-             <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+             <a href="{{ route('admin.home') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                 <svg aria-hidden="true" class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
                 <span class="ml-3">Dashboard</span>
              </a>
@@ -47,20 +47,6 @@
 
  <div class="sm:ml-64">
     <div class="px-3 rounded-lg dark:border-gray-700">
-       <div class="grid grid-cols-3 gap-4 mb-4">
-          <div class="flex items-center justify-center h-24 rounded bg-blue-500 dark:bg-gray-800">
-             <p class="text-xl text-white dark:text-gray-500 pl-3">Total Lawyers</p>
-             <span class="m-3 py-2 px-3 bg-white rounded">5</span>
-          </div>
-          <div class="flex items-center justify-center h-24 rounded bg-green-500 dark:bg-gray-800">
-            <p class="text-xl text-white dark:text-gray-500 pl-3">Total Judges</p>
-            <span class="m-3 py-2 px-3 bg-white rounded">5</span>
-         </div>
-         <div class="flex items-center justify-center h-24 rounded bg-gray-500 dark:bg-gray-800">
-            <p class="text-xl text-white dark:text-gray-500 pl-3">Total Cases</p>
-            <span class="m-3 py-2 px-3 bg-white rounded">{{ $caseCount }}</span>
-         </div>
-       </div>
        <div class="h-full mb-4 rounded relative overflow-x-auto">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -113,38 +99,6 @@
             </table>
             {{ $cases->links() }}
         </div>
-
-       <div class="grid grid-cols-2 gap-4 mb-4">
-          <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-          </div>
-          <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-          </div>
-          <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-          </div>
-          <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-          </div>
-       </div>
-       <div class="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
-          <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-       </div>
-       <div class="grid grid-cols-2 gap-4">
-          <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-          </div>
-          <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-          </div>
-          <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-          </div>
-          <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-          </div>
-       </div>
     </div>
  </div>
 

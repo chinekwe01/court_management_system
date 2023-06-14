@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourtCaseController;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Route;
@@ -24,7 +25,7 @@ Auth::routes();
 
 /*------------------------------------------
 --------------------------------------------
-All Normal Users Routes List
+All Lawyer Users Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:lawyer'])->group(function () {
@@ -33,11 +34,10 @@ Route::middleware(['auth', 'user-access:lawyer'])->group(function () {
 
 /*------------------------------------------
 --------------------------------------------
-All Admin Routes List
+All Judge Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:judge'])->group(function () {
-
     Route::get('/judge/home', [HomeController::class, 'judgeHome'])->name('judge.home');
 });
 
@@ -47,6 +47,7 @@ All Admin Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
-
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
+    Route::get('/cases', [CourtCaseController::class, 'index'])->name('admin.case.index');
+
 });
