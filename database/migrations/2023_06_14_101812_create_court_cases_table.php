@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('court_cases', function (Blueprint $table) {
             $table->id();
+            $table->string('type');
+            $table->string('details');
+            $table->date('begin');
+            $table->date('end');
+            // $table->string('court_id');
             $table->timestamps();
         });
     }

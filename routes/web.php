@@ -28,7 +28,6 @@ All Normal Users Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:lawyer'])->group(function () {
-
     Route::get('/lawyer/home', [HomeController::class, 'lawyerHome'])->name('lawyer.home');
 });
 
