@@ -15,6 +15,7 @@ class CourtCaseController extends Controller
     public function index()
     {
         $cases = CourtCase::paginate(10);
+        // $courtCase = CourtCase::find($id);
         return view('cases.index', compact('cases'));
     }
 

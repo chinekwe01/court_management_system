@@ -73,17 +73,12 @@
                             Type
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Details
-                        </th>
-                        <th scope="col" class="px-6 py-3">
                             Start Date
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            End Date
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Status
                         </th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -96,13 +91,7 @@
                             {{ $case->type }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $case->details }}
-                        </td>
-                        <td class="px-6 py-4">
                             {{ $case->begins }}
-                        </td>
-                        <td class="px-6 py-4 ">
-                            {{ $case->ends }}
                         </td>
                         <td class="px-6 py-4">
                             <p>Active</p>
