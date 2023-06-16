@@ -89,7 +89,7 @@ class CourtCaseController extends Controller
         ]);
         $courtCase->update($request->all());
 
-        return redirect()->route('admin.case.store')->with('success','Case updated successfully.');
+        return redirect()->route('admin.case.index')->with('success','Case updated successfully.');
     }
 
     /**
