@@ -50,6 +50,8 @@ All Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
     Route::get('/cases', [CourtCaseController::class, 'index'])->name('admin.case.index');
+    Route::get('/cases/{id}', [CourtCaseController::class, 'show'])->name('admin.case.show');
+    Route::get('/case/{id}/edit', [CourtCaseController::class, 'edit'])->name('admin.case.edit');
     Route::post('/cases/store', [CourtCaseController::class,'store'])->name('admin.case.store');
 
 });

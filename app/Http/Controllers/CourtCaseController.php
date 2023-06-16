@@ -14,9 +14,10 @@ class CourtCaseController extends Controller
      */
     public function index()
     {
-        $cases = CourtCase::paginate(10);
-        // $courtCase = CourtCase::find($id);
-        return view('cases.index', compact('cases'));
+        $cases = CourtCase::latest()->paginate(10);
+        // $courtCase = CourtCase::find();
+        return view('cases.index', compact('cases'))->with('i', (request()->input('page', 1) - 1) * 5);
+        // return view('cases.index', compact('cases'));
     }
 
     /**
@@ -45,7 +46,7 @@ class CourtCaseController extends Controller
         ]);
         CourtCase::create($request->all());
 
-        return redirect()->route('admin.case.index')->with('success','Case created successfully.');;
+        return redirect()->route('admin.case.index')->with('success','Case created successfully.');
     }
 
     /**
@@ -54,9 +55,11 @@ class CourtCaseController extends Controller
      * @param  \App\Models\CourtCase  $courtCase
      * @return \Illuminate\Http\Response
      */
-    public function show(CourtCase $courtCase)
+    public function show($id)
     {
-        //
+        $cases = CourtCase::where('id', $id)->get();
+        $case = $cases->first();
+        return view('cases.show', compact('case'));
     }
 
     /**
@@ -65,9 +68,10 @@ class CourtCaseController extends Controller
      * @param  \App\Models\CourtCase  $courtCase
      * @return \Illuminate\Http\Response
      */
-    public function edit(CourtCase $courtCase)
+    public function edit($courtCase)
     {
-        //
+        $cases = CourtCase::find($courtCase);
+        return view('cases.edit', compact('cases'));
     }
 
     /**
@@ -79,7 +83,15 @@ class CourtCaseController extends Controller
      */
     public function update(Request $request, CourtCase $courtCase)
     {
-        //
+        $request->validate([
+            'type' => 'required',
+            'details' => 'required|max:255',
+            'begins' => 'required',
+            'ends' =>'required',
+        ]);
+        $courtCase->update($request->all());
+
+        return redirect()->route('admin.case.store')->with('success','Case updated successfully.');
     }
 
     /**
