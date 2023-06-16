@@ -15,9 +15,7 @@ class CourtCaseController extends Controller
     public function index()
     {
         $cases = CourtCase::latest()->paginate(10);
-        // $courtCase = CourtCase::find();
         return view('cases.index', compact('cases'))->with('i', (request()->input('page', 1) - 1) * 5);
-        // return view('cases.index', compact('cases'));
     }
 
     /**
