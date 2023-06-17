@@ -98,8 +98,11 @@ class CourtCaseController extends Controller
      * @param  \App\Models\CourtCase  $courtCase
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CourtCase $courtCase)
+    public function destroy($id)
     {
-        //
+        $courtCase = CourtCase::findOrFail($id);
+        $courtCase->delete();
+
+        return redirect()->route('admin.case.index')->with('success','Case deleted successfully.');
     }
 }

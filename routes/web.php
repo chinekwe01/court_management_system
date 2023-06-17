@@ -54,5 +54,5 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/case/{id}/edit', [CourtCaseController::class, 'edit'])->name('admin.case.edit');
     Route::post('/cases/store', [CourtCaseController::class,'store'])->name('admin.case.store');
     Route::put('/cases/update', [CourtCaseController::class,'update'])->name('admin.case.update');
-
+    Route::delete('/cases/{id}', [CourtCaseController::class,'destroy'])->name('admin.case.destroy');
 });

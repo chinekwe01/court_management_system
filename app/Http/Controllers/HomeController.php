@@ -24,7 +24,9 @@ use Illuminate\Http\Request;
         */
        public function lawyerHome()
        {
-           return view('lawyerHome');
+        $cases = CourtCase::paginate(5);
+        $caseCount = CourtCase::count();
+           return view('lawyerHome', compact('cases', 'caseCount'));
        }
 
        /**
