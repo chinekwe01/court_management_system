@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Nette\Utils\Random;
 use App\Models\CourtCase;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class CourtCaseController extends Controller
@@ -25,7 +27,7 @@ class CourtCaseController extends Controller
      */
     public function create()
     {
-        return view('cases.createCase');
+        // return view('cases.createCase');
     }
 
     /**
@@ -42,7 +44,14 @@ class CourtCaseController extends Controller
             'begins' => 'required',
             'ends' =>'required',
         ]);
-        CourtCase::create($request->all());
+        $case = CourtCase::create([
+            'suit_no' => Str::random(8),
+            'type' => $request->type,
+            'details' => $request->details,
+            'begins' => $request->begins,
+            'ends' => $request->ends,
+        ]);
+        // CourtCase::create($request->all());
 
         return redirect()->route('admin.case.index')->with('success','Case created successfully.');
     }

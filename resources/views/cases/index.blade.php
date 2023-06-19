@@ -65,6 +65,9 @@
             S/N
             </th>
             <th scope="col" class="px-6 py-3">
+                Suit no.
+                </th>
+            <th scope="col" class="px-6 py-3">
             Type
             </th>
             <th scope="col" class="px-6 py-3">
@@ -90,6 +93,9 @@
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                 {{ $case->id }}
                 </td>
+                <td class="px-6 py-4">
+                    {{ $case->suit_no }}
+                    </td>
                 <td class="px-6 py-4">
                 {{ $case->type }}
                 </td>
