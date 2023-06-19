@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,6 +19,7 @@ class CourtCaseFactory extends Factory
     {
         $date = $this->faker->dateTimeBetween('-1 day' );
         return [
+            'suit_no' => Str::random(8),
             'type' => $this->faker->word(2, true),
             'details' => $this->faker->sentences(3, true),
             'begins'=>$date,

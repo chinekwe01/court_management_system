@@ -10,6 +10,6 @@ class CourtCase extends Model
     use HasFactory;
 
     protected $fillable = [
-        'type', 'details', 'begins', 'ends'
+        'suit_no', 'type', 'details', 'begins', 'ends'
     ];
 }

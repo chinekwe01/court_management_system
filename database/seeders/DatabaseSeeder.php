@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             CreateUsersSeeder::class
         ]);
 
-        \App\Models\CourtCase::factory(30)->create();
+        \App\Models\CourtCase::factory(5)->create();
 
     }
 }

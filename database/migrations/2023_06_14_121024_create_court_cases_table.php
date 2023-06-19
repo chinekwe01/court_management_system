@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('court_cases', function (Blueprint $table) {
             $table->id();
+            $table->string('suit_no');
             $table->string('type');
             $table->string('details');
             $table->date('begins');
