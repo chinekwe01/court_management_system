@@ -77,7 +77,7 @@
             Start Date
             </th>
             <th scope="col" class="px-6 py-3">
-            End Date
+            Adjoining Date
             </th>
             <th scope="col" class="px-6 py-3">
             Status

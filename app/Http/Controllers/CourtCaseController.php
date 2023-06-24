@@ -75,7 +75,7 @@ class CourtCaseController extends Controller
      * @param  \App\Models\CourtCase  $courtCase
      * @return \Illuminate\Http\Response
      */
-    public function edit($courtCase)
+    public function edit(CourtCase $courtCase)
     {
         $cases = CourtCase::find($courtCase);
         return view('cases.edit', compact('cases'));

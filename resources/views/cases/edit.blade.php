@@ -45,41 +45,43 @@
     </div>
  </aside>
 
- <div class="sm:ml-64">
-    <div class="px-3 rounded-lg dark:border-gray-700">
-       <div class="h-full mb-4 rounded relative overflow-x-auto">
-            <div class="m-0">
-                <h1 class="text-bold text-2xl mb-2">Update Case</h1>
-                <form action="{{ route('admin.case.update') }}" method="POST">
-                    @csrf
-                    @method('PUT')
-                    <div class="grid gap-4 mb-4 sm:grid-cols-2">
-                        <div>
-                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Case Type</label>
-                            <input type="text" name="type" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type case" required="" value="{{ $cases->type }}">
+<div class="container-full">
+    <div class="sm:ml-64">
+        <div class="px-3 rounded-lg dark:border-gray-700">
+           <div class="h-full mb-4 rounded relative overflow-x-auto">
+                <div class="m-0">
+                    <h1 class="text-bold text-2xl mb-2">Update Case</h1>
+                    <form action="{{ route('admin.case.update', $cases->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <div class="grid gap-4 mb-4 sm:grid-cols-2">
+                            <div>
+                                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Case Type</label>
+                                <input type="text" name="type" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type case" required="" value="{{ $cases->type }}">
+                            </div>
+                            <div>
+                                <label for="start_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Starting Date</label>
+                                <input type="date" name="begins" id="start_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="2021-05-12" required="" value="{{ $cases->begins }}">
+                            </div>
+                            <div>
+                                <label for="end_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ending Date</label>
+                                <input type="date" name="ends" id="end_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="2021-05-15" required="" value="{{ $cases->ends }}">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Details</label>
+                                <textarea id="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write case description here" name="details">{{ $cases->details }}</textarea>
+                            </div>
                         </div>
-                        <div>
-                            <label for="start_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Starting Date</label>
-                            <input type="date" name="begins" id="start_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="2021-05-12" required="" value="{{ $cases->begins }}">
-                        </div>
-                        <div>
-                            <label for="end_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ending Date</label>
-                            <input type="date" name="ends" id="end_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="2021-05-15" required="" value="{{ $cases->ends }}">
-                        </div>
-                        <div class="sm:col-span-2">
-                            <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Details</label>
-                            <textarea id="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write case description here" name="details">{{ $cases->details }}</textarea>
-                        </div>
-                    </div>
-                    <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                        <svg class="mr-1 -ml-1 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
-                        Update case
-                    </button>
-                </form>
+                        <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                            <svg class="mr-1 -ml-1 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
+                            Update case
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
- </div>
+     </div>
+</div>
 
 
  <!-- Main modal -->
