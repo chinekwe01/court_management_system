@@ -25,7 +25,7 @@
              </a>
           </li>
           <li>
-            <a href="{{ route('admin.judgement.index') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+            <a href="{{ route('admin.case.index') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
                <span class="flex-1 ml-3 whitespace-nowrap">Judgement</span>
             </a>
@@ -54,10 +54,8 @@
  <div class="sm:ml-64">
     <div class="px-3 rounded-lg dark:border-gray-700">
        <div class="h-full mb-4 rounded relative overflow-x-auto">
-            <div class="flex justify-between">
-                <h1 class="text-bold text-2xl mt-2">All Cases</h1>
-                {{-- Modal toggle --}}
-                <button id="defaultModalButton" data-modal-toggle="defaultModal" class="bg-blue-500 p-2 rounded hover:bg-blue-700 text-lg text-white">Create Case</button>
+            <div>
+                <h1 class="text-bold text-2xl mt-2">Judgment Table</h1>
             </div>
             @if ($message = Session::get('success'))
                 <div class="alert alert-success mt-2">
@@ -68,33 +66,18 @@
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
             <th scope="col" class="px-6 py-3">
-            S/N
+                S/N
             </th>
             <th scope="col" class="px-6 py-3">
-                Suit no.
-                </th>
-            <th scope="col" class="px-6 py-3">
-            Type
+                Fact
             </th>
             <th scope="col" class="px-6 py-3">
-            Details
-            </th>
-            <th scope="col" class="px-6 py-3">
-            Start Date
-            </th>
-            <th scope="col" class="px-6 py-3">
-            Adjoining Date
-            </th>
-            <th scope="col" class="px-6 py-3">
-            Status
-            </th>
-            <th scope="col" class="px-6 py-3">
-                Actions
+                Judgement Status
             </th>
             </tr>
             </thead>
             <tbody>
-            @foreach ($cases as $case)
+            {{-- @foreach ($cases as $case)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                 {{ $case->id }}
@@ -134,10 +117,10 @@
                       </div>
                 </td>
                 </tr>
-            @endforeach
+            @endforeach --}}
             </tbody>
             </table>
-            {!! $cases->render() !!}
+            {{-- {!! $cases->render() !!} --}}
         </div>
     </div>
  </div>

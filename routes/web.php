@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\CourtCaseController;
+use App\Models\CourtCase;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Models\CourtCase;
+use App\Http\Controllers\CourtCaseController;
+use App\Http\Controllers\JudgementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,4 +56,5 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::put('/cases/{id}/update', [CourtCaseController::class,'update'])->name('admin.case.update');
     Route::post('/cases/store', [CourtCaseController::class,'store'])->name('admin.case.store');
     Route::delete('/cases/{id}', [CourtCaseController::class,'destroy'])->name('admin.case.destroy');
+    Route::get('/judgment', [JudgementController::class, 'index'])->name('admin.judgement.index');
 });
