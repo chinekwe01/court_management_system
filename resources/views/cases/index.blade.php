@@ -119,13 +119,13 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                           <a class="dropdown-item" href="{{ route('admin.case.show', $case->id) }}">View Case</a>
                           <a class="dropdown-item" href="{{ route('admin.case.edit', $case->id) }}">Edit Case</a>
-                            <form action="{{ route('admin.case.destroy', $case->id) }}" method="POST" class="dropdown-item">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="text-black">Delete</button>
-                            </form>
+                        <form action="{{ route('admin.case.destroy', $case->id) }}" method="POST" class="dropdown-item">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="text-black">Delete</button>
+                      </form>
                         </div>
-                    </div>
+                      </div>
                 </td>
                 </tr>
             @endforeach
