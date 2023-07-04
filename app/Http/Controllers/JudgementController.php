@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Judgement;
 use Illuminate\Http\Request;
 
 class JudgementController extends Controller
@@ -13,7 +14,8 @@ class JudgementController extends Controller
      */
     public function index()
     {
-        return view('judgement.index');
+        $judgements = Judgement::latest()->paginate(5);
+        return view('judgement.index', compact('judgements'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**

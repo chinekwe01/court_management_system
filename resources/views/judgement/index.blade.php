@@ -77,50 +77,31 @@
             </tr>
             </thead>
             <tbody>
-            {{-- @foreach ($cases as $case)
+            @foreach ($judgements as $judgement)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                {{ $case->id }}
+                {{ $judgement->id }}
                 </td>
                 <td class="px-6 py-4">
-                    {{ $case->suit_no }}
+                    {{ $judgement->fact }}
                     </td>
                 <td class="px-6 py-4">
-                {{ $case->type }}
-                </td>
-                <td class="px-6 py-4">
-                {{ $case->details }}
-                </td>
-                <td class="px-6 py-4">
-                {{ $case->begins }}
-                </td>
-                <td class="px-6 py-4 ">
-                {{ $case->ends }}
-                </td>
-                <td class="px-6 py-4">
-                <p>Active</p>
-                </td>
-                <td class="px-6 py-4">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle text-white bg-success" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                            Actions
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="{{ route('admin.case.show', $case->id) }}">View Case</a>
-                          <a class="dropdown-item" href="{{ route('admin.case.edit', $case->id) }}">Edit Case</a>
-                        <form action="{{ route('admin.case.destroy', $case->id) }}" method="POST" class="dropdown-item">
-                          @csrf
-                          @method('DELETE')
-                          <button type="submit" class="text-black">Delete</button>
-                      </form>
-                        </div>
-                      </div>
+                    @if ($judgement->judgement == 'Processing')
+                        <span class="bg-blue-400 text-white p-2 rounded">{{ $judgement->judgement }}</span>
+                    @elseif ($judgement->judgement == 'Pending')
+                    <span class="bg-red-500 text-white p-2 rounded">{{ $judgement->judgement }}</span>
+                    @elseif ($judgement->judgement == 'Completed')
+                    <span class="bg-green-500 text-white p-2 rounded">{{ $judgement->judgement }}</span>
+                    @else
+                    <span class="bg-yellow-500 text-white p-2 rounded">{{ $judgement->judgement }}</span>
+
+                    @endif
                 </td>
                 </tr>
-            @endforeach --}}
+            @endforeach
             </tbody>
             </table>
-            {{-- {!! $cases->render() !!} --}}
+            {!! $judgements->render() !!}
         </div>
     </div>
  </div>
