@@ -12,4 +12,7 @@ class CourtCase extends Model
     protected $fillable = [
         'suit_no', 'type', 'details', 'begins', 'ends'
     ];
+    public function Judgment(){
+        return $this->hasMany(Judgement::class, 'case_id');
+    }
 }

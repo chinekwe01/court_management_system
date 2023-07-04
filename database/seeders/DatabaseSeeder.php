@@ -26,5 +26,10 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\CourtCase::factory(5)->create();
 
+        $this->call([
+            CreateJudgementsSeeder::class
+        ]);
+
+        \App\Models\Judgement::factory(5)->create();
     }
 }

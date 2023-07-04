@@ -15,10 +15,12 @@ return new class extends Migration
     {
         Schema::create('judgements', function (Blueprint $table) {
             $table->id();
-            $table->string('case_id');
-            $table->text('fact');
+            $table->string('fact');
             $table->string('judgement');
+            $table->unsignedBigInteger('case_id');
+            $table->foreign('case_id')->references('id')->on('court_cases');
             $table->timestamps();
+
         });
     }
 
