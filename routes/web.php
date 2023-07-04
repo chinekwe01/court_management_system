@@ -51,7 +51,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
     Route::get('/cases', [CourtCaseController::class, 'index'])->name('admin.case.index');
     Route::get('/cases/{id}', [CourtCaseController::class, 'show'])->name('admin.case.show');
-    Route::get('/case/{id}/edit', [CourtCaseController::class, 'edit'])->name('admin.case.edit');
+    Route::get('/case/edit/{id}', [CourtCaseController::class, 'edit'])->name('admin.case.edit');
     Route::put('/cases/{id}/update', [CourtCaseController::class,'update'])->name('admin.case.update');
     Route::post('/cases/store', [CourtCaseController::class,'store'])->name('admin.case.store');
     Route::delete('/cases/{id}', [CourtCaseController::class,'destroy'])->name('admin.case.destroy');
