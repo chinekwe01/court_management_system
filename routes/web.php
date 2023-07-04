@@ -40,7 +40,8 @@ All Judge Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:judge'])->group(function () {
-    Route::get('/judge/home', [HomeController::class, 'judgeHome'])->name('judge.home');
+    Route::get('/judge/home', [JudgementController::class, 'judgementTable'])->name('judge.home');
+    Route::get('judge/cases', [JudgementController::class, 'casesTable'])->name('judge.cases');
 });
 
 /*------------------------------------------
@@ -56,5 +57,5 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::put('/cases/{id}/update', [CourtCaseController::class,'update'])->name('admin.case.update');
     Route::post('/cases/store', [CourtCaseController::class,'store'])->name('admin.case.store');
     Route::delete('/cases/{id}', [CourtCaseController::class,'destroy'])->name('admin.case.destroy');
-    Route::get('/judgment', [JudgementController::class, 'index'])->name('admin.judgement.index');
+    Route::get('/judgement', [JudgementController::class, 'index'])->name('admin.judgement.index');
 });

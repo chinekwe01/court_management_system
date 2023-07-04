@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CourtCase;
 use App\Models\Judgement;
 use Illuminate\Http\Request;
 
@@ -18,6 +19,17 @@ class JudgementController extends Controller
         return view('judgement.index', compact('judgements'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    public function judgementTable()
+    {
+        $judgements = Judgement::latest()->paginate(5);
+        return view('judges.judgement', compact('judgements'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
+    public function casesTable()
+    {
+        $cases = CourtCase::latest()->paginate(10);
+        return view('judges.cases', compact('cases'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
     /**
      * Show the form for creating a new resource.
      *
