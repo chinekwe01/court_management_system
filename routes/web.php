@@ -59,3 +59,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::delete('/cases/{id}', [CourtCaseController::class,'destroy'])->name('admin.case.destroy');
     Route::get('/judgement', [JudgementController::class, 'index'])->name('admin.judgement.index');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
